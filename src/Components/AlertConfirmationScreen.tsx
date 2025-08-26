@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, Shield, CheckCircle, MapPin, Phone, Users, AlertTriangle } from 'lucide-react';
-import { Location } from '../types';
+import { Location, SOSAlertResult } from '../types';
 
 interface AlertConfirmationScreenProps {
-  alertResult: any;
+  alertResult: SOSAlertResult | null;
   userLocation: Location | null;
   onBack: () => void;
   onAllClear: () => void;
@@ -45,7 +45,7 @@ export const AlertConfirmationScreen: React.FC<AlertConfirmationScreenProps> = (
 
   // Simulate progressive completion of alert actions
   useEffect(() => {
-    const timers: NodeJS.Timeout[] = [];
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
     // Complete contacts notification after 1 second
     timers.push(setTimeout(() => {

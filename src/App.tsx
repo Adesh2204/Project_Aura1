@@ -82,7 +82,7 @@ export default function App() {
     if (userProfile.voiceActivationEnabled && voice.permissionStatus === 'prompt') {
       voice.requestPermission();
     }
-  }, [userProfile.voiceActivationEnabled]);
+  }, [userProfile.voiceActivationEnabled, voice.permissionStatus, voice.requestPermission]);
 
   // Handle audio processing workflow
   useEffect(() => {

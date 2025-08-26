@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react';
-import { AuraState } from '../types';
+import { AuraState, SOSAlertResult } from '../types';
 
 export const useAuraState = () => {
   const [state, setState] = useState<AuraState>(AuraState.IDLE);
   const [isListening, setIsListening] = useState(false);
   const [transcription, setTranscription] = useState<string>('');
   const [aiResponse, setAiResponse] = useState<string>('');
-  const [sosAlertResult, setSOSAlertResult] = useState<any>(null);
+  const [sosAlertResult, setSOSAlertResult] = useState<SOSAlertResult | null>(null);
 
   const activateAura = useCallback(() => {
     setState(AuraState.ACTIVE);
@@ -48,7 +48,7 @@ export const useAuraState = () => {
     setAiResponse(response);
   }, []);
 
-  const updateSOSResult = useCallback((result: any) => {
+  const updateSOSResult = useCallback((result: SOSAlertResult) => {
     setSOSAlertResult(result);
   }, []);
   return {

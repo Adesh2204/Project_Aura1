@@ -1,3 +1,5 @@
+/// <reference types="https://deno.land/x/deno@v1.40.0/lib.deno.d.ts" />
+
 /*
   # Aura Emergency Alert Function
   
@@ -19,6 +21,7 @@
 */
 
 import { createClient } from 'npm:@supabase/supabase-js@2';
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -178,7 +181,7 @@ Deno.serve(async (req: Request) => {
           contact: contact.name,
           phone: contact.phone_number,
           status: 'failed',
-          error: error.message
+          error: (error as Error).message || 'Unknown error'
         });
       }
     }
@@ -225,7 +228,7 @@ Deno.serve(async (req: Request) => {
       JSON.stringify({
         success: false,
         message: "Internal server error",
-        error: error.message
+        error: (error as Error).message || 'Unknown error'
       }),
       {
         status: 500,

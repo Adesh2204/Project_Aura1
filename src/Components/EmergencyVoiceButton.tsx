@@ -1,4 +1,4 @@
-import React from 'react';
+import { } from 'react';
 import { Volume2 } from 'lucide-react';
 
 interface EmergencyVoiceButtonProps {

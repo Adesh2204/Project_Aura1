@@ -58,10 +58,24 @@ class StorageService {
     const defaultProfile: UserProfile = {
       id: this.getUserId(),
       name: '',
-      emergencyContacts: this.getEmergencyContacts()
+      emergencyContacts: this.getEmergencyContacts(),
+      voiceActivationEnabled: false,
+      voiceActivationLanguage: 'en-US'
     };
     
-    return stored ? { ...defaultProfile, ...JSON.parse(stored) } : defaultProfile;
+    if (stored) {
+      try {
+        const parsedProfile = JSON.parse(stored);
+        return { ...defaultProfile, ...parsedProfile };
+      } catch (error) {
+        console.error('Error parsing stored user profile:', error);
+        // Clear corrupted data and return default
+        localStorage.removeItem(STORAGE_KEYS.USER_PROFILE);
+        return defaultProfile;
+      }
+    }
+    
+    return defaultProfile;
   }
 
   /**

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mic, MapPin, Users, AlertTriangle } from 'lucide-react';
 
 interface PermissionPromptProps {

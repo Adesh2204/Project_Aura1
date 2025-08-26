@@ -40,7 +40,8 @@ export interface AudioProcessingResult {
 export interface SOSAlertResult {
   success: boolean;
   message: string;
-  contactsNotified: number;
-  location: Location;
-  timestamp: string;
+  data?: {
+    contactsNotified: number;
+    timestamp: string;
+  };
 }

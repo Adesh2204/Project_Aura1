@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { AuraState } from '../types';
 
 interface AuraButtonProps {

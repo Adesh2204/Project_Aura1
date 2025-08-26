@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Plus, Trash2, User, Phone } from 'lucide-react';
 import { EmergencyContact } from '../types';
 

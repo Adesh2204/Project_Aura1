@@ -1,4 +1,4 @@
-import React from 'react';
+import { } from 'react';
 import { Mic, MicOff, AlertTriangle } from 'lucide-react';
 
 interface VoiceStatusIndicatorProps {

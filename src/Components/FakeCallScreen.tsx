@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Phone, PhoneOff, Mic, MicOff, Volume2 } from 'lucide-react';
 
 interface FakeCallScreenProps {
@@ -28,7 +28,7 @@ export const FakeCallScreen: React.FC<FakeCallScreenProps> = ({
 
   // Start call timer when answered
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setInterval>;
     if (isAnswered) {
       timer = setInterval(() => {
         setCallDuration(prev => prev + 1);

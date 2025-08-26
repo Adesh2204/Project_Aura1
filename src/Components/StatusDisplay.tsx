@@ -1,4 +1,4 @@
-import React from 'react';
+import { } from 'react';
 import { Mic, MicOff, AlertTriangle, Shield } from 'lucide-react';
 import { AuraState } from '../types';
 

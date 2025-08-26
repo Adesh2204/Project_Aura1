@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ArrowLeft, User, Shield, HelpCircle, Mic } from 'lucide-react';
 import { ContactManager } from './ContactManager';
 import { EmergencyContact, UserProfile } from '../types';
